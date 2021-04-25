@@ -15,8 +15,16 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+
+import java.awt.EventQueue;  
+import javax.swing.JButton;  
+import java.awt.Font;  
+import java.awt.Color;
+import java.awt.Container;
+
 import ma.fstt.dao.BaseBook;
 
+@SuppressWarnings("serial")
 public class Book extends JFrame {
 
 	private JPanel contentPane;
@@ -24,7 +32,6 @@ public class Book extends JFrame {
 	private JTextField auteur;
 	private JTextField annee;
 	private JTable table;
-
 	/**
 	 * Launch the application.
 	 */
@@ -81,6 +88,55 @@ public class Book extends JFrame {
 		annee.setBounds(36, 105, 130, 26);
 		contentPane.add(annee);
 		annee.setColumns(10);
+
+		JLabel lblNewLabel_3 = new JLabel("Update");
+		lblNewLabel_2.setBounds(26, 86, 61, 16);
+		contentPane.add(lblNewLabel_3);
+
+		JButton updateBtn = new JButton("UPDATE");
+		updateBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				// code model 
+				
+
+				// BaseBook baseBook;
+				// try {
+				// 	baseBook = new BaseBook();
+				// 	baseBook.save(new ma.fstt.model.Book(0, name.getText() , auteur.getText() , annee.getText()));
+				// } catch (SQLException e1) {
+				// 	e1.printStackTrace();
+				// }
+				
+				
+			}
+		});
+		updateBtn.setBounds(295, 116, 117, 29);
+		contentPane.add(updateBtn);
+		
+		JLabel lblNewLabel_4 = new JLabel("Delete");
+		lblNewLabel_2.setBounds(26, 86, 61, 16);
+		contentPane.add(lblNewLabel_4);
+		
+		JButton deleteBtn = new JButton("Delete");
+		deleteBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				// code model 
+			
+				// BaseBook baseBook;
+				// try {
+				// 	baseBook = new BaseBook();
+				// 	baseBook.save(new ma.fstt.model.Book(0, name.getText() , auteur.getText() , annee.getText()));
+				// } catch (SQLException e1) {
+				// 	e1.printStackTrace();
+				// }
+				
+				
+			}
+		});
+		deleteBtn.setBounds(295, 116, 117, 29);
+		contentPane.add(deleteBtn);
 		
 		JButton btnNewButton = new JButton("Save");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -94,13 +150,8 @@ public class Book extends JFrame {
 					baseBook = new BaseBook();
 					baseBook.save(new ma.fstt.model.Book(0, name.getText() , auteur.getText() , annee.getText()));
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				
-				
-				
 				
 				
 			}
@@ -133,7 +184,6 @@ public class Book extends JFrame {
 			
 			
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 	

@@ -14,7 +14,7 @@
   
   
   </dependencies>
-  
+  <executable>"path to your maven installation"\bin\mvn.bat</executable>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>

@@ -20,7 +20,7 @@ public abstract class   BaseDao <T> {
 	protected ResultSet resultSet ;
 	
 	
-	private String url = "jdbc:mysql://localhost:3306/gbook";
+	private String url = "jdbc:mysql://localhost:3306/bookstore";
 	private String user = "root";
 	private String password = "";
 	

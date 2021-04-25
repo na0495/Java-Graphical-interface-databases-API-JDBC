@@ -2,14 +2,11 @@ package ma.fstt.model;
 
 public class Has {
 	
-	
 	private Integer id_has ;
 	
 	private String date ;
 	
-	
 	private Book book ;
-	
 	
 	private BookStore bookStore ;
 
@@ -44,9 +41,5 @@ public class Has {
 	public void setBookStore(BookStore bookStore) {
 		this.bookStore = bookStore;
 	}
-	
-	
-	
-	
 
 }

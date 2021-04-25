@@ -19,7 +19,6 @@ private Integer id_book ;
 
 	public Book() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Book(Integer id_book, String name, String auteur, String annee) {

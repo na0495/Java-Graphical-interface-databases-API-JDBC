@@ -10,7 +10,6 @@ public class BaseBook extends BaseDao<Book> {
 
 	public BaseBook() throws SQLException {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -25,28 +24,38 @@ public class BaseBook extends BaseDao<Book> {
 		this.preparedStatement.setString(1,object.getName() );
 		this.preparedStatement.setString(2,object.getAuteur() );
 		this.preparedStatement.setString(3,object.getAnnee() );
-		
 		this.preparedStatement.execute();
-		
 		
 	}
 
 	@Override
 	public void update(Book object) throws SQLException{
-		// TODO Auto-generated method stub
-		
+
+		String sql = "UPDATE Users SET name=?, auteur=?, annee=? WHERE id_book=?";
+ 
+        PreparedStatement statement = conn.prepareStatement(sql);
+        int rowsUpdated = statement.executeUpdate();
+        if (rowsUpdated > 0) {
+            System.out.println("this book was updated successfully!");
+        }
 	}
 
 	@Override
 	public void delete(Book object) throws SQLException{
-		// TODO Auto-generated method stub
-		
+
+		String sql = "DELETE FROM Users WHERE username=?";
+		 
+		PreparedStatement statement = conn.prepareStatement(sql);
+		 
+		int rowsDeleted = statement.executeUpdate();
+		if (rowsDeleted > 0) {
+			System.out.println("the book was deleted successfully!");
+		}
 	}
 
 	@Override
 	public List<Book> getAll() throws SQLException{
-		
-		
+			
 		List<Book> lsit  = new ArrayList() ;
 		
 		String sql = "select * from book" ;
@@ -72,7 +81,6 @@ public class BaseBook extends BaseDao<Book> {
 
 	@Override
 	public Book getOne(int id ) throws SQLException {
-		// TODO Auto-generated method stub
    Book  book   = new Book() ;
 		
 		String sql = "select * from book where id_book = ?" ;

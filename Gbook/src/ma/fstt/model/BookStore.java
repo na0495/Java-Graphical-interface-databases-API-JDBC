@@ -14,14 +14,10 @@ public class BookStore {
 	
 	private String email ;
 	
-	
 	private List<Book> listbooks ;
-	
-	
 
 	public BookStore() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public List<Book> getListbooks() {
