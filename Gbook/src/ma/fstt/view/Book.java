@@ -15,12 +15,19 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-
-import java.awt.EventQueue;  
-import javax.swing.JButton;  
-import java.awt.Font;  
 import java.awt.Color;
-import java.awt.Container;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 import ma.fstt.dao.BaseBook;
 
@@ -97,21 +104,17 @@ public class Book extends JFrame {
 		updateBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				// code model 
-				
-
-				// BaseBook baseBook;
-				// try {
-				// 	baseBook = new BaseBook();
-				// 	baseBook.save(new ma.fstt.model.Book(0, name.getText() , auteur.getText() , annee.getText()));
-				// } catch (SQLException e1) {
-				// 	e1.printStackTrace();
-				// }
-				
+				BaseBook baseBook;
+				try {
+					baseBook = new BaseBook();
+					baseBook.save(new ma.fstt.model.Book(0, name.getText() , auteur.getText() , annee.getText()));
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
 				
 			}
 		});
-		updateBtn.setBounds(295, 116, 117, 29);
+		updateBtn.setBounds(440, 116, 117, 29);
 		contentPane.add(updateBtn);
 		
 		JLabel lblNewLabel_4 = new JLabel("Delete");
@@ -135,7 +138,7 @@ public class Book extends JFrame {
 				
 			}
 		});
-		deleteBtn.setBounds(295, 116, 117, 29);
+		deleteBtn.setBounds(440, 43, 117, 29);
 		contentPane.add(deleteBtn);
 		
 		JButton btnNewButton = new JButton("Save");
@@ -156,7 +159,7 @@ public class Book extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(295, 116, 117, 29);
+		btnNewButton.setBounds(255, 104, 117, 29);
 		contentPane.add(btnNewButton);
 		
 		

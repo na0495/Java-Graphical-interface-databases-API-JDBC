@@ -19,8 +19,6 @@ public class BaseBook extends BaseDao<Book> {
 		
 		this.preparedStatement = connection.prepareStatement(sql);
 		
-		// mapping objet relation 
-		
 		this.preparedStatement.setString(1,object.getName() );
 		this.preparedStatement.setString(2,object.getAuteur() );
 		this.preparedStatement.setString(3,object.getAnnee() );
@@ -32,11 +30,13 @@ public class BaseBook extends BaseDao<Book> {
 	public void update(Book object) throws SQLException{
 
 		String sql = "UPDATE Users SET name=?, auteur=?, annee=? WHERE id_book=?";
- 
-        PreparedStatement statement = conn.prepareStatement(sql);
-        int rowsUpdated = statement.executeUpdate();
-        if (rowsUpdated > 0) {
-            System.out.println("this book was updated successfully!");
+        try{
+        	this.preparedStatement = connection.prepareStatement(sql);
+        	this.preparedStatement.setString(1, object.getName());
+        	this.preparedStatement.setString(2, object.getAuteur());
+        	this.preparedStatement.setString(3, object.getAnnee());
+        }catch(Exception e){
+            e.printStackTrace();
         }
 	}
 
@@ -44,13 +44,15 @@ public class BaseBook extends BaseDao<Book> {
 	public void delete(Book object) throws SQLException{
 
 		String sql = "DELETE FROM Users WHERE username=?";
-		 
-		PreparedStatement statement = conn.prepareStatement(sql);
-		 
-		int rowsDeleted = statement.executeUpdate();
-		if (rowsDeleted > 0) {
-			System.out.println("the book was deleted successfully!");
+		try{
+			this.preparedStatement = connection.prepareStatement(sql);
+			this.preparedStatement.setInt(1, object.getId_book());
+			this.preparedStatement.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		 
+
 	}
 
 	@Override
@@ -103,7 +105,5 @@ public class BaseBook extends BaseDao<Book> {
 		
 		return book ;
 	}
-
-	
 
 }

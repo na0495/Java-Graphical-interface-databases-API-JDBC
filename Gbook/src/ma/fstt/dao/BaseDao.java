@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
+import ma.fstt.model.Book;
+
 public abstract class   BaseDao <T> {
 	
 	
@@ -19,7 +21,6 @@ public abstract class   BaseDao <T> {
 	
 	protected ResultSet resultSet ;
 	
-	
 	private String url = "jdbc:mysql://localhost:3306/bookstore";
 	private String user = "root";
 	private String password = "";
@@ -30,19 +31,11 @@ public abstract class   BaseDao <T> {
 		
 	}
 	
-	
 	public abstract void save(T object)throws SQLException;
 	public abstract void update(T object) throws SQLException;
 	public abstract void delete(T object)throws SQLException;
 	public abstract List<T> getAll()throws SQLException;
-	public abstract T getOne(int id )throws SQLException;
-	
-	
-	
-	
-	
-	
-	
-	
+	public abstract T getOne(int id)throws SQLException;
+
 
 }
